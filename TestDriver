@@ -1,0 +1,31 @@
+package com;
+
+public class TestDriver {
+    public static void main(String[] args) {
+
+        Driver d  = new Driver(1, "Raju", "auto", 90.09);
+        Driver d1 = new Driver(2, "Balu", "car", 70.08);
+        Driver d2 = new Driver(3, "Kamyar", "Lorry", 95.00);
+        Driver d3 = new Driver(4, "Ramu", "car", 99.00);
+
+        Driver[] drivers = { d, d1, d2, d3 };
+
+        Travels t = new Travels();
+
+        System.out.println(t.isCarDriver(drivers));
+
+        System.out.println(t.retrivebyDriverId(drivers, 1));
+
+        System.out.println(t.retriveCountOfDriver(drivers, "car"));
+
+        Driver[] carDrivers = t.retriveDriver(drivers, "car");
+        for (Driver cd : carDrivers) {
+            System.out.println(cd.getDriverName());
+        }
+
+        Driver maxDriver = t.RetriveMaximumDistanceTravelledDriver(drivers);
+        System.out.println("Max Distance Driver: "
+                + maxDriver.getDriverName()
+                + " (" + maxDriver.getTotalDistance() + " KM)");
+    }
+}
